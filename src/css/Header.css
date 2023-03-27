@@ -1,0 +1,56 @@
+.header{
+    display: flex;
+    margin: 1vw auto auto auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2vw 2vw 2vw 2vw;
+    border: 3px solid black;
+    border-radius: 1vw;
+}
+
+.search{
+    min-width: 10vw;
+    font-weight: bold;
+    height: 1.5vw;
+    margin-left: auto;
+    margin-right: 1.5vw;
+}
+
+.priorityWrapper{
+    display: flex;
+    margin: auto;
+    margin-top: 1vw;
+}
+
+.prioritySelect{
+    margin-left: 3.1vw;
+}
+
+.stateSelect{
+    margin-left: 4vw;
+}
+
+.stateWrapper{
+    display: flex;
+    margin: auto;
+    margin-top: 1vw;
+}
+
+.nameInput{
+    width: 80%;
+}
+
+.labelStyle{
+    font-weight: bold;
+}
+
+input{
+    margin-left: 2vw;
+}
+
+select{
+    height: 1.5vw;
+    width: 10vw;
+}
+
+
