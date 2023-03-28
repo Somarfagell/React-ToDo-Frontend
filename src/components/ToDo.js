@@ -1,4 +1,3 @@
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 import React from "react";
 import { updateStatusData, getData } from "../misc/functions";
 

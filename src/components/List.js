@@ -11,13 +11,13 @@ export default function List({data, setData}){
         let configs = []
         //Check the corresponding button to alter the state and refresh it with the new data
         if(e.target.name === "descPriority"){
-            configs = [data[0],{"text":data[1]['text'],"priority":data[1]['priority'],"status":data[1]['status'],"prioritySort":'desc',"dateSort":data[1]['dateSort']},data[2],data[3],data[4],data[5]]
-        }else if(e.target.name === "ascPriority"){
             configs = [data[0],{"text":data[1]['text'],"priority":data[1]['priority'],"status":data[1]['status'],"prioritySort":'asc',"dateSort":data[1]['dateSort']},data[2],data[3],data[4],data[5]]
+        }else if(e.target.name === "ascPriority"){
+            configs = [data[0],{"text":data[1]['text'],"priority":data[1]['priority'],"status":data[1]['status'],"prioritySort":'desc',"dateSort":data[1]['dateSort']},data[2],data[3],data[4],data[5]]
         }else if(e.target.name === "descDate"){
-            configs = [data[0],{"text":data[1]['text'],"priority":data[1]['priority'],"status":data[1]['status'],"prioritySort":data[1]['prioritySort'],"dateSort":'desc'},data[2],data[3],data[4],data[5]]
-        }else if(e.target.name === "ascDate"){
             configs = [data[0],{"text":data[1]['text'],"priority":data[1]['priority'],"status":data[1]['status'],"prioritySort":data[1]['prioritySort'],"dateSort":'asc'},data[2],data[3],data[4],data[5]]
+        }else if(e.target.name === "ascDate"){
+            configs = [data[0],{"text":data[1]['text'],"priority":data[1]['priority'],"status":data[1]['status'],"prioritySort":data[1]['prioritySort'],"dateSort":'desc'},data[2],data[3],data[4],data[5]]
         }
         //refreshing the data
         const specs = {
