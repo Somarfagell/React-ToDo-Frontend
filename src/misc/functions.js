@@ -8,17 +8,26 @@ export const getData = async (specs) => {
     return(res);
 }
 
-export const updateData = async (updateData) => {
-    const response = await fetch(url+'/', {
+export const updateData = async (id, todo) => {
+    await fetch(url+'/'+id, {
         method: 'PUT',
-        body: JSON.stringify(updateData, updateData.getId()), // Object type ToDo
+        body: JSON.stringify(todo), // Object type ToDo
         headers: {
             'Content-Type': 'application/json'
         }
     });
-    //return the data
-    const data = await response.json(); //extract JSON from the http response
-    return data;
+    return ;
+}
+
+export const deleteData = async (id) => {
+    await fetch(url+'/'+id, {
+        method: 'DELETE',
+        body: null, // Object type ToDo
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    return ;
 }
 
 export const updateStatusData = async (statusData, id) => {

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import '../css/List.css';
 import ToDo from "./ToDo";
 import { getData } from "../misc/functions";
+import UpdateModal from "./UpdateModal";
 
 export default function List({data, setData}){
     //Header titles to render them 
     let header = ['Status', 'Name', 'Priority', 'Due Date', 'Actions'];
+    const [modal, showModal] = useState([false,null]);
 
     const modifyConf = (e) => {
         let configs = []
@@ -55,11 +57,11 @@ export default function List({data, setData}){
                 </thead>
                 <tbody>
                     {data[0].map((todo, index)=>{
-                        return <ToDo key={index} data = {todo} setData={setData} stateData={data}/>
+                        return <ToDo key={index} data = {todo} setData={setData} stateData={data} modal={modal} setModal={showModal}/>
                     })}
                 </tbody>
             </table>
-            
+            {modal[0] ? <UpdateModal modal={modal} showModal={showModal} stateData={data} setState={setData}/> : null}
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { updateStatusData, getData } from "../misc/functions";
 
-export default function ToDo({ data, setData, stateData }) {
+export default function ToDo({ data, setData, stateData, setModal}) {
 
     const updateStatus = () => {
         //Update the done status
@@ -24,6 +24,10 @@ export default function ToDo({ data, setData, stateData }) {
         return
     }
 
+    const showEditModal = () => {
+        setModal([true,data]);
+    }
+
 
     const weeks = ((new Date(data['dueDate'].replace(/-/g, "/").slice(0, 10)) - new Date()) / (1000 * 3600 * 24)) / 7;
     return (
@@ -35,7 +39,7 @@ export default function ToDo({ data, setData, stateData }) {
                 {data['dueDate']}
             </td>
             <td className="buttonContainer">
-                <button onClick={null}>Edit/Delete</button>
+                <button onClick={showEditModal}>Edit/Delete</button>
             </td>
         </tr>
         </>
