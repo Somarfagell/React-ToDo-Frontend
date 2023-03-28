@@ -11,7 +11,7 @@ export const getData = async (specs) => {
 export const updateData = async (updateData) => {
     const response = await fetch(url+'/', {
         method: 'PUT',
-        body: JSON.stringify(updateData), // Object type ToDo
+        body: JSON.stringify(updateData, updateData.getId()), // Object type ToDo
         headers: {
             'Content-Type': 'application/json'
         }
