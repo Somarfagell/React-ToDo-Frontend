@@ -23,7 +23,7 @@ export default function Modal({data,setData,id}){
         let response = getData(specs)
         response.then((result) => {
             //Update the data of the state and close modal
-            setData([result["content"],{"text":specs["specifications"][0],"priority":specs["specifications"][1],"status":specs["specifications"][2],"prioritySort":data[1]["prioritySort"],"dateSort":data[1]["dateSort"]},result["page"],result["pageSize"],data[4],data[5]])
+            setData([result["content"],{"text":specs["specifications"][0],"priority":specs["specifications"][1],"status":specs["specifications"][2],"prioritySort":data[1]["prioritySort"],"dateSort":data[1]["dateSort"]},result["page"],result["pageSize"],false,data[5]])
         }).catch((err) => {
             alert("Error getting the data");
         });

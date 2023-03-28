@@ -23,8 +23,8 @@ export const updateData = async (updateData) => {
 
 export const updateStatusData = async (statusData, id) => {
     //In case it is set as DONE
-    if(statusData == true){
-        const response = await fetch(url+'/'+id+"/done", {
+    if(statusData === true){
+        await fetch(url+'/'+id+"/done", {
             method: 'PUT',
             body: null, // Object type ToDo
             headers: {
@@ -33,7 +33,7 @@ export const updateStatusData = async (statusData, id) => {
         });
     } else{
     //In Case it is set as UNDONE
-        const response = await fetch(url+'/'+id+"/undone", {
+        await fetch(url+'/'+id+"/undone", {
             method: 'PUT',
             body: null, // Object type ToDo
             headers: {

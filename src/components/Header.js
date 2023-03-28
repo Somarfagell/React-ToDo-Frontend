@@ -12,7 +12,7 @@ export default function Header({data,setData}){
         const state = e.target.state.value; 
 
         const specs = {
-            "specifications": [text,value,state,data[1]["prioritySort"],],
+            "specifications": [text,value,state,data[1]["prioritySort"],data[1]["dateSort"]],
             "actualPage": data[2]
         }
         //Get the data from the form
