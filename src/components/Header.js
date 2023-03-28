@@ -1,10 +1,10 @@
 import React from "react";
 import '../css/Header.css';
-import { updateData, getData, updateStatusData, pruebas } from "../misc/functions";
+import {getData} from "../misc/functions";
 
 export default function Header({data,setData}){
     //Data goes as follows: [ [Data to map], [Filtered data], page, totalPages, showCreateModal, showUpdateModal]
-    const handleSubmit = (e) => {
+    const handleSubmitHeader = (e) => {
         e.preventDefault();
         //Get the specifications
         const text = e.target.text.value;
@@ -12,15 +12,14 @@ export default function Header({data,setData}){
         const state = e.target.state.value; 
 
         const specs = {
-            "specifications": [text,value,state],
+            "specifications": [text,value,state,data[1]["prioritySort"],],
             "actualPage": data[2]
         }
         //Get the data from the form
         let response = getData(specs)
         response.then((result) => {
             //Update the data of the state
-            console.log(result)
-            setData([result["content"],{"text":specs["specifications"][0],"priority":specs["specifications"][1],"status":specs["specifications"][2]},result["page"],result["pageSize"],data[3],data[4]])
+            setData([result["content"],{"text":specs["specifications"][0],"priority":specs["specifications"][1],"status":specs["specifications"][2],"prioritySort":data[1]["prioritySort"],"dateSort":data[1]["dateSort"]},result["page"],result["pageSize"],data[4],data[5]])
         }).catch((err) => {
             alert("Error getting the data");
         });
@@ -29,7 +28,7 @@ export default function Header({data,setData}){
     return (
         <>
             <div className="header">
-                <form action="GET" onSubmit={handleSubmit}>
+                <form action="GET" onSubmit={handleSubmitHeader}>
                     <label className='labelStyle'>Name : <input type="text" name="text" className='nameInput' maxLength={120} /></label>
                     <div className='priorityWrapper'>
                         <label className='labelStyle'>Priority : </label>

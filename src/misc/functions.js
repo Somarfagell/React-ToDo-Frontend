@@ -2,15 +2,15 @@ const url = "http://localhost:8080/todos";
 //Data goes as follows: [ [Data to map], [Filtered data], page, totalPages, showCreateModal, showUpdateModal]
 
 export const getData = async (specs) => {
-    const response = await fetch(url+'?text='+specs["specifications"][0]+'&priority='+specs["specifications"][1]+'&status='+specs["specifications"][2]+'&page='+specs["actualPage"]);
+    const response = await fetch(url+'?text='+specs["specifications"][0]+'&priority='+specs["specifications"][1]+'&status='+specs["specifications"][2]+'&page='+specs["actualPage"]+'&prioritySort='+specs["specifications"][3]+'&dateSort='+specs["specifications"][4]);
     const res = await response.json(); //extract JSON from the http response
     //return the data
     return(res);
 }
 
 export const updateData = async (updateData) => {
-    const response = await fetch(url+'todos', {
-        method: 'GET',
+    const response = await fetch(url+'/', {
+        method: 'PUT',
         body: JSON.stringify(updateData), // Object type ToDo
         headers: {
             'Content-Type': 'application/json'
@@ -18,21 +18,41 @@ export const updateData = async (updateData) => {
     });
     //return the data
     const data = await response.json(); //extract JSON from the http response
+    return data;
 }
 
-export const updateStatusData = async (statusData) => {
-    //
-    const response = await fetch(url+'todos', {
-        method: 'GET',
-        body: JSON.stringify(data), // Object type ToDo
+export const updateStatusData = async (statusData, id) => {
+    //In case it is set as DONE
+    if(statusData == true){
+        const response = await fetch(url+'/'+id+"/done", {
+            method: 'PUT',
+            body: null, // Object type ToDo
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    } else{
+    //In Case it is set as UNDONE
+        const response = await fetch(url+'/'+id+"/undone", {
+            method: 'PUT',
+            body: null, // Object type ToDo
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    //return
+    return;
+}
+
+export const sendData = async (todo) => {
+    await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(todo), // Object type ToDo
         headers: {
             'Content-Type': 'application/json'
         }
     });
     //return the data
-    const data = await response.json(); //extract JSON from the http response
-}
-
-export const pruebas = async (message) => {
-    console.log(message);
+    return;
 }

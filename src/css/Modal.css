@@ -1,0 +1,9 @@
+.modalContainer{
+    margin-top: 3vw;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
