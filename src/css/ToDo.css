@@ -1,4 +1,27 @@
 td{
-    border-radius: 2px;
-    padding-left: 1vw;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.updateButton{
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    font-weight: bold;
+}
+
+.updateButton:hover{
+    color: white;
+}
+
+.centered{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.controlled{
+    margin: 5px;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../css/List.css';
 import ToDo from "./ToDo";
-import { getData } from "../misc/functions";
+import { getData} from "../misc/functions";
 import UpdateModal from "./UpdateModal";
 
 export default function List({data, setData}){
@@ -26,10 +26,11 @@ export default function List({data, setData}){
             "specifications": [configs[1]['text'],configs[1]['priority'],configs[1]['status'],configs[1]['prioritySort'],configs[1]['dateSort']],
             "actualPage": data[2]
         }
-        let response = getData(specs)
+        let response = getData(specs);
+
         response.then((result) => {
             //Update the data of the state
-            setData([result["content"],configs[1],result["page"],result["pageSize"],data[4],data[5]])
+                setData([result["content"],configs[1],result["page"],result["pageSize"],data[4],data[5],data[6]]);    
         }).catch((err) => {
             alert("Error getting the data");
         });

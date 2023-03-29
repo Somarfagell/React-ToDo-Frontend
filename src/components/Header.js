@@ -1,6 +1,6 @@
 import React from "react";
 import '../css/Header.css';
-import {getData} from "../misc/functions";
+import {getData, getStatistics} from "../misc/functions";
 
 export default function Header({data,setData}){
     //Data goes as follows: [ [Data to map], [Filtered data], page, totalPages, showCreateModal, showUpdateModal]
@@ -17,9 +17,14 @@ export default function Header({data,setData}){
         }
         //Get the data from the form
         let response = getData(specs)
+        let stats = getStatistics();
+
         response.then((result) => {
             //Update the data of the state
-            setData([result["content"],{"text":specs["specifications"][0],"priority":specs["specifications"][1],"status":specs["specifications"][2],"prioritySort":data[1]["prioritySort"],"dateSort":data[1]["dateSort"]},result["page"],result["pageSize"],data[4],data[5]])
+            stats.then((res) => {
+                setData([result["content"],{"text":specs["specifications"][0],"priority":specs["specifications"][1],"status":specs["specifications"][2],"prioritySort":data[1]["prioritySort"],"dateSort":data[1]["dateSort"]},result["page"],result["pageSize"],data[4],data[5],res])
+            }).catch((err) => {
+            });
         }).catch((err) => {
             alert("Error getting the data");
         });

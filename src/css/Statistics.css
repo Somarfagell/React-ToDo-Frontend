@@ -1,0 +1,14 @@
+.statsBody{
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    border: 1px solid black;
+    border-radius: 1vw;
+    padding: 1vw 0vw 1vw 0vw;
+    display: flex;
+    justify-content: center;
+}
+
+.statsDiv{
+    margin-left: 1vw;
+    margin-right: 1vw;
+}

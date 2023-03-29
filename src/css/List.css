@@ -19,6 +19,14 @@
     width: 100%;
 }
 
-button{
+.listButton{
     margin-left: 1vw;
+    color: white;
+    background: none;
+    border: none;
+    border-radius: 30%;
+}
+
+.listButton:hover{
+    background-color: peru;
 }

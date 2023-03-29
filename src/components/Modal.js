@@ -1,8 +1,8 @@
 import React from "react";
-import { sendData, getData } from "../misc/functions"; 
+import { sendData, getData, getStatistics } from "../misc/functions"; 
 import "../css/Modal.css"
 
-export default function Modal({data,setData,id}){
+export default function Modal({data,setData}){
 
     const handleSubmit = (e) => {
         //Prevent the submit action
@@ -21,9 +21,14 @@ export default function Modal({data,setData,id}){
             "actualPage": data[2]
         }
         let response = getData(specs)
+        let stats = getStatistics();
+
         response.then((result) => {
-            //Update the data of the state and close modal
-            setData([result["content"],{"text":specs["specifications"][0],"priority":specs["specifications"][1],"status":specs["specifications"][2],"prioritySort":data[1]["prioritySort"],"dateSort":data[1]["dateSort"]},result["page"],result["pageSize"],false,data[5]])
+            stats.then((res) => {
+                //Update the data of the state and close modal
+            setData([result["content"],{"text":specs["specifications"][0],"priority":specs["specifications"][1],"status":specs["specifications"][2],"prioritySort":data[1]["prioritySort"],"dateSort":data[1]["dateSort"]},result["page"],result["pageSize"],false,data[5],res])
+            }).catch((err) => { 
+            });
         }).catch((err) => {
             alert("Error getting the data");
         });
@@ -32,7 +37,7 @@ export default function Modal({data,setData,id}){
     
     const closeModal = () => {
         //Set false the modal flag
-        setData([data[0],data[1],data[2],data[3],false,data[5]]);
+        setData([data[0],data[1],data[2],data[3],false,data[5], data[6]]);
     }
 
     return(

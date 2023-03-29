@@ -8,6 +8,13 @@ export const getData = async (specs) => {
     return(res);
 }
 
+export const getStatistics = async () => {
+    const response = await fetch(url+'/statistics');
+    const res = await response.json(); //extract JSON from the http response
+    //return the data
+    return(res);
+}
+
 export const updateData = async (id, todo) => {
     await fetch(url+'/'+id, {
         method: 'PUT',
@@ -16,7 +23,7 @@ export const updateData = async (id, todo) => {
             'Content-Type': 'application/json'
         }
     });
-    return ;
+    return;
 }
 
 export const deleteData = async (id) => {
