@@ -1,0 +1,23 @@
+.pageContainer{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+    margin: 2vw auto 0 auto;
+    width: 30%;
+    height: 4vw;
+}
+
+.arrowButton{
+    font-weight: bolder;
+    background: none;
+    border: none;
+    border-radius: 40%;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+.arrowButton:hover{
+    background-color: grey;
+}

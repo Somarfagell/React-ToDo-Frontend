@@ -1,5 +1,6 @@
 import React from "react";
 import { updateStatusData, getData } from "../misc/functions";
+import '../css/ToDo.css'
 
 export default function ToDo({ data, setData, stateData, setModal}) {
 
@@ -34,7 +35,7 @@ export default function ToDo({ data, setData, stateData, setModal}) {
         <><tr style={{ backgroundColor: weeks <= 1 ? '#EA5455' : weeks <= 2 && weeks > 1 ? '#F2CD5C' : "#DFFFD8" }}>
             <td><input type='checkbox' onChange={updateStatus} checked={data['done']}></input></td>
             <td>{data['text']}</td>
-            <td>{data['priority']}</td>
+            <td>{data['priority'] === 1 ? "Low": data['priority'] === 2 ? "Medium":"High"}</td>
             <td>
                 {data['dueDate']}
             </td>

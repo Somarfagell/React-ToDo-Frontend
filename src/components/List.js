@@ -44,13 +44,13 @@ export default function List({data, setData}){
                     <th className="title">{header[1]}</th>
                     <th className="title">
                         {header[2]} 
-                        <button className="arrowButton" name="descPriority" onClick={modifyConf}>{'<'}</button>
-                        <button className="arrowButton" name="ascPriority" onClick={modifyConf}>{'>'}</button>
+                        <button className="listButton" name="descPriority" onClick={modifyConf}>{'<'}</button>
+                        <button className="listButton" name="ascPriority" onClick={modifyConf}>{'>'}</button>
                     </th>
                     <th className="title">
                         {header[3]}
-                        <button className="arrowButton" name="descDate" onClick={modifyConf}>{'<'}</button>
-                        <button className="arrowButton" name="ascDate" onClick={modifyConf}>{'>'}</button>
+                        <button className="listButton" name="descDate" onClick={modifyConf}>{'<'}</button>
+                        <button className="listButton" name="ascDate" onClick={modifyConf}>{'>'}</button>
                     </th>
                     <th className="title">{header[4]}</th>
                     </tr>

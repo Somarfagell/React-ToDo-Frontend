@@ -4,11 +4,12 @@ import '../css/App.css';
 import Header from './Header.js';
 import List from './List';
 import Modal from './Modal.js';
+import Page from './Page';
 
 
 function App() {
-  //Data goes as follows: [ [Data to map], [Filtered data], page, totalPages, showCreateModal, showUpdateModal]
-  const [data, setData] = useState([[], { "text": "", "priority": "All", "status": "All", "prioritySort": "asc", "dateSort": "" }, 0, 0, false, false]);
+  //Data goes as follows: [ [Data to map], [Filtered data], page, totalPages, showCreateModal, showUpdateModal, statistic times]
+  const [data, setData] = useState([[], { "text": "", "priority": "All", "status": "All", "prioritySort": "asc", "dateSort": "asc" }, 0, 0, false, false, {"all":0,'low':0,'medium':0,'high':0}]);
 
   const showNewModal = () => {
     //Only update the showCreateModal
@@ -46,6 +47,7 @@ function App() {
       <button type='button' className='buttonToDo' onClick={showNewModal}>+ New To Do</button>
       {data[4] ? <Modal setData={setData} data={data} /> : null}
       <List data={data} setData={setData} />
+      <Page state = {data} setState={setData}/>
     </>
   );
 }
