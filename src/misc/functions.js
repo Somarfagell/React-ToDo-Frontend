@@ -1,5 +1,5 @@
-const url = "http://localhost:8080/todos";
-//Data goes as follows: [ [Data to map], [Filtered data], page, totalPages, showCreateModal, showUpdateModal]
+//Url of the target backend
+const url = "http://localhost:9090/todos";
 
 export const getData = async (specs) => {
     const response = await fetch(url+'?text='+specs["specifications"][0]+'&priority='+specs["specifications"][1]+'&status='+specs["specifications"][2]+'&page='+specs["actualPage"]+'&prioritySort='+specs["specifications"][3]+'&dateSort='+specs["specifications"][4]);
